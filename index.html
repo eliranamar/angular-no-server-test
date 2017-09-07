@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="/">
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div ng-app="myApp">
+
+
+    <div ng-controller="playerCtrl">
+      My brother is {{brother}}
+
+      <input type="text" ng-model="bound" />
+      <input type="button" value="Show" ng-click="showTwoWay()">
+
+
+      <p>This is my favorite number: {{rand}}
+        <input type="button" value="Randomize" ng-click="getRand()" /></p>
+    </div>
+
+    <div class="container">
+      <ul ng-controller="girlsCtrl">
+        <li ng-repeat="girl in girlsWhoHaveRejectedMe">{{girl}}</li>
+      </ul>
+    </div>
+
+    <!--  -->
+
+    <div class="container" ng-controller="namesCtrl">
+      <input ng-model="searchText.first">
+      <ol>
+        <li ng-repeat="name in names | filter: searchText">
+          {{name.first | uppercase}} {{name.last | uppercase}}. Age: {{name.age}}
+        </li>
+      </ol>
+    </div>
+
+    <!--  -->
+
+
+
+
+
+  </div>
+  <!-- AngularJS CDN -->
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/@uirouter/core/_bundles/ui-router-core.js"></script>
+  <script src="node_modules/@uirouter/angularjs/release/ui-router-angularjs.js"></script>
+  <!-- main app -->
+  <script src="js/app.js"></script>
+  <!-- Factories -->
+  <script src="js/Factories/namesFactory.js"></script>
+  <!-- Controllers -->
+  <script src="js/Controllers/namePlayCtrl.js"></script>
+  <script src="js/Controllers/namesCtrl.js"></script>
+  <script src="js/Controllers/girlsCtrl.js"></script>
+</body>
+
+</html>
